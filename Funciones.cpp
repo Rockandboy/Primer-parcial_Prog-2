@@ -64,8 +64,8 @@ void buscarViaje()
                             cout << "\t----------- Viaje realizado en tren -----------" << endl;
                             break;
                         }
-                        mostrarViaje(buscar);
                         }
+                        mostrarViaje(buscar);
                     }
                 }
                 fclose(archivo);
