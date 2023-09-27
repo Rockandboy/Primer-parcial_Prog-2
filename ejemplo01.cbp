@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Funciones.cpp" />
+		<Unit filename="Funciones.h" />
 		<Unit filename="Tarjetas.h" />
 		<Unit filename="Viajes.cpp" />
 		<Unit filename="Viajes.h" />

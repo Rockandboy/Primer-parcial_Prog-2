@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1695775622 source:d:\documentos\github\primer-parcial_prog-2\main.cpp
+	<iostream>
+	<locale.h>
+	"Funciones.h"
+
+1695772847 source:d:\documentos\github\primer-parcial_prog-2\viajes.cpp
+	<iostream>
+	<string.h>
+	<stdio.h>
+	"Viajes.h"
+
+1695773151 d:\documentos\github\primer-parcial_prog-2\viajes.h
+
+1695762098 d:\documentos\github\primer-parcial_prog-2\tarjetas.h
+
+1695776573 source:d:\documentos\github\primer-parcial_prog-2\funciones.cpp
+	<iostream>
+	<string.h>
+	<stdio.h>
+	"Viajes.h"
+	"Tarjetas.h"
+	"Funciones.h"
+
+1695774472 d:\documentos\github\primer-parcial_prog-2\funciones.h
+

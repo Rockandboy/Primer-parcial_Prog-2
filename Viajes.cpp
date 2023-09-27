@@ -1,10 +1,13 @@
 #include <iostream>
+#include <string.h>
+#include <stdio.h>
 #include "Viajes.h"
+
 
 using namespace std;
 
-
-void mostrarViaje(Viajes v){
+void mostrarViaje(Viajes v)
+{
 
     cout << "NUMERO VIAJE: " << v.numeroViaje << endl;
 
@@ -16,5 +19,5 @@ void mostrarViaje(Viajes v){
 
     cout << "IMPORTE VIAJE: " << v.importeViaje << endl;
 
-    cout << "-*-*-*-*-*-*-*-*-" << endl;
+    cout << "---------------------------------------------------" << endl;
 }
