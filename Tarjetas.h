@@ -10,5 +10,6 @@ struct Tarjetas
     bool estado;
 };
 
+struct Tarjetas obtenerRegTarjeta(char *);
 
 #endif // TARJETAS_H_INCLUDED

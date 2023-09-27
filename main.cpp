@@ -50,6 +50,21 @@ int main()
                 mayorRecaudacionSubteMes();
                 break;
             }
+        case '4':
+            {
+                contarViajes_Colectivos_Mayo();
+                break;
+            }
+        case '5':
+            {
+                mayorImporteViaje();
+                break;
+            }
+        case '6':
+            {
+                mostrarGastosTarjetas();
+                break;
+            }
         case '0':
         {
             salir = true;
