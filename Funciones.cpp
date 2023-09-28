@@ -163,40 +163,57 @@ void mayorRecaudacionSubteMes()
 //4) -----------------------------------------------------
 void contarViajes_Colectivos_Mayo()
 {
-    FILE* archivo;
+    FILE *a_viajes,*a_tarjetas;
     Viajes buscar;
+    Tarjetas tar;
     int viajesTotales=0;
-    ///abro el archivo
-    archivo = fopen(ARCHIVO_VIAJES,"rb");
-    ///compruebo
-    if(archivo==NULL)
+    ///abro el archivo tarjetas
+    a_tarjetas = fopen(ARCHIVO_TARJETAS,"rb");
+    if(a_tarjetas==NULL)
     {
         cout << "ERROR: Archivo No Existente" << endl;
     }
     else
     {
-        ///Leo
-        while(fread(&buscar,sizeof(Viajes),1,archivo)==1)
+
+        while(fread(&tar,sizeof(Tarjetas),1,a_tarjetas)==1)
         {
-            if ((buscar.mesViaje == 4) && (buscar.medioTransporte == 1))
+            a_viajes = fopen(ARCHIVO_VIAJES,"rb");
+            ///compruebo
+            if(a_viajes==NULL)
             {
-                viajesTotales++;
-                cout << "La tarjeta: " << buscar.numeroTarjeta << " realizo un viaje en el mes de mayo" << endl;
-                cout << "Numero de viaje: " << buscar.numeroViaje << endl;
+                cout << "ERROR: Archivo No Existente" << endl;
             }
-        }
-        if (viajesTotales==0)
-        {
-            cout << "No se realizaron viajes en colectivo en el mes de MAYO" << endl;
-        }
-        else
-        {
-            cout << "En el mes de MAYO se realizaron un total de: " << viajesTotales << " viajes en colectivo" <<  endl;
+            else
+            {
+                ///Leo
+                while(fread(&buscar,sizeof(Viajes),1,a_viajes)==1)
+                {
+                    if ((buscar.mesViaje == 5) && (buscar.medioTransporte == 1))
+                    {
+                        viajesTotales++;
+
+                    }
+                }
+            }
+            fclose(a_viajes);
+            if (viajesTotales==0)
+            {
+                cout << "La tarjeta: " << tar.numeroTarjeta << endl;
+                cout << "No realizo viajes en colectivo en el mes de MAYO\n" << endl;
+            }
+            else
+            {
+                cout << "La tarjeta: " << tar.numeroTarjeta << endl;
+                cout << "realizo : " << viajesTotales << " de viajes en colectivo en el mes de mayo\n" << endl;
+            }
+            viajesTotales = 0;
         }
     }
+
     system("pause");
     system("cls");
-    fclose(archivo);
+    fclose(a_tarjetas);
 }
 //5) -----------------------------------------------------
 void mayorImporteViaje()
