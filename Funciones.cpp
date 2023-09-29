@@ -175,7 +175,6 @@ void contarViajes_Colectivos_Mayo()
     }
     else
     {
-
         while(fread(&tar,sizeof(Tarjetas),1,a_tarjetas)==1)
         {
             a_viajes = fopen(ARCHIVO_VIAJES,"rb");
@@ -189,25 +188,24 @@ void contarViajes_Colectivos_Mayo()
                 ///Leo
                 while(fread(&buscar,sizeof(Viajes),1,a_viajes)==1)
                 {
-                    if ((buscar.mesViaje == 5) && (buscar.medioTransporte == 1))
+                    if (strcmp(tar.numeroTarjeta,buscar.numeroTarjeta)==0 && buscar.mesViaje == 5 && buscar.medioTransporte == 1)
                     {
                         viajesTotales++;
-
                     }
                 }
+                if (viajesTotales==0)
+                {
+                    cout << "La tarjeta: " << tar.numeroTarjeta << endl;
+                    cout << "No realizo viajes en colectivo en el mes de MAYO\n" << endl;
+                }
+                else
+                {
+                    cout << "La tarjeta: " << tar.numeroTarjeta << endl;
+                    cout << "realizo : " << viajesTotales << " de viajes en colectivo en el mes de mayo\n" << endl;
+                }
+                viajesTotales = 0;
             }
-            fclose(a_viajes);
-            if (viajesTotales==0)
-            {
-                cout << "La tarjeta: " << tar.numeroTarjeta << endl;
-                cout << "No realizo viajes en colectivo en el mes de MAYO\n" << endl;
-            }
-            else
-            {
-                cout << "La tarjeta: " << tar.numeroTarjeta << endl;
-                cout << "realizo : " << viajesTotales << " de viajes en colectivo en el mes de mayo\n" << endl;
-            }
-            viajesTotales = 0;
+
         }
     }
 
@@ -215,6 +213,8 @@ void contarViajes_Colectivos_Mayo()
     system("cls");
     fclose(a_tarjetas);
 }
+
+
 //5) -----------------------------------------------------
 void mayorImporteViaje()
 {
