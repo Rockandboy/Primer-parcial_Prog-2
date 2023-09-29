@@ -68,7 +68,7 @@ void buscarViaje()
                         mostrarViaje(buscar);
                     }
                 }
-                fclose(archivo);
+                fseek(archivo,0,SEEK_SET);
             }
         }
         else
@@ -78,6 +78,7 @@ void buscarViaje()
         salir = salirFuncion();
         system("cls");
     }
+    fclose(archivo);
 }
 ///2) -----------------------------------------------------
 void buscarMenorImporteViaje()
@@ -117,6 +118,7 @@ void buscarMenorImporteViaje()
     }
     system("pause");
     system("cls");
+    fclose(archivo);
 }
 //3) -----------------------------------------------------
 void mayorRecaudacionSubteMes()
@@ -145,6 +147,7 @@ void mayorRecaudacionSubteMes()
                 mayorRecaudacion[buscar.mesViaje-1] += buscar.importeViaje;
             }
         }
+        fseek(archivo,0,SEEK_SET);
         for (int mes=1; mes<=12; mes++)
         {
             if (mayorRecaudacionMes<mayorRecaudacion[mes-1])
@@ -153,11 +156,11 @@ void mayorRecaudacionSubteMes()
                 mayorRecaudacionMes = mayorRecaudacion[mes-1];
             }
         }
-        fclose(archivo);
         cout << "La mayor recaudacion en servicios de subte fue en el mes: " << mayorMes << ", Con un total de: $" << mayorRecaudacionMes << endl;
     }
     system("pause");
     system("cls");
+    fclose(archivo);
 }
 
 //4) -----------------------------------------------------
@@ -193,6 +196,7 @@ void contarViajes_Colectivos_Mayo()
                         viajesTotales++;
                     }
                 }
+                fseek(a_viajes,0,SEEK_SET);
                 if (viajesTotales==0)
                 {
                     cout << "La tarjeta: " << tar.numeroTarjeta << endl;
@@ -212,6 +216,7 @@ void contarViajes_Colectivos_Mayo()
     system("pause");
     system("cls");
     fclose(a_tarjetas);
+    fclose(a_viajes);
 }
 
 
@@ -306,7 +311,7 @@ void mostrarGastosTarjetas()
                                 gastosTarjeta += buscar.importeViaje;
                             }
                         }
-                        fclose(a_viajes);
+                        fseek(a_viajes,0,SEEK_SET);
                     }
                     if (gastosTarjeta!=0)
                     {
@@ -327,6 +332,7 @@ void mostrarGastosTarjetas()
         system("pause");
         system("cls");
         fclose(a_tarjetas);
+        fclose(a_viajes);
     }
 }
 
